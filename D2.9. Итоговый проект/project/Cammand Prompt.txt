@@ -1,0 +1,524 @@
+
+D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект>venv\scripts\activate
+
+(venv) D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект>cd project
+
+(venv) D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\project>python
+
+"pyth" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+(venv) D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\project>python
+ manage.py makemigrate
+Unknown command: 'makemigrate'. Did you mean makemigrations?
+Type 'manage.py help' for usage.
+
+(venv) D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\project>python
+ manage.py makemigrations
+Migrations for 'News_Portal':
+  News_Portal\migrations\0001_initial.py
+    - Create model Author
+    - Create model Category
+    - Create model Post
+    - Create model PostCategory
+    - Add field postCategory to post
+    - Create model Comment
+
+(venv) D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\project>python manage.py migrate
+ manage.py migrate
+Operations to perform:
+  Apply all migrations: News_Portal, admin, auth, contenttypes, flatpages, se
+ssions, sites
+Running migrations:
+  Applying News_Portal.0001_initial... OK
+(venv) D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\project>python
+ manage.py shell
+Python 3.9.11 (tags/v3.9.11:2de452f, Mar 16 2022, 14:33:45) [MSC v.1929 64 bi
+t (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from News_Portal import *
+>>> u1 = User.objects.create_user(username='Georg')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'User' is not defined
+>>> from News_Portal.models import *
+>>> u1 = User.objects.create_user(username='Georg')
+Traceback (most recent call last):
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\backends\sqlite3\base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: auth_user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\contrib\auth\models.py", line 161, in create_user
+    return self._create_user(username, email, password, **extra_fields)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\contrib\auth\models.py", line 155, in _create_user
+    user.save(using=self._db)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\contrib\auth\base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\models\base.py", line 831, in save
+    self.save_base(
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\models\base.py", line 882, in save_base
+    updated = self._save_table(
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\models\base.py", line 1025, in _save_table
+    results = self._do_insert(
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\models\base.py", line 1066, in _do_insert
+    return manager._insert(
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\models\query.py", line 1790, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\models\sql\compiler.py", line 1657, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+    return self.cursor.execute(sql, params)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username
+>>>
+KeyboardInterrupt
+>>> exit()
+
+(venv) D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\project>python manage.py makemigrations
+Migrations for 'News_Portal':
+  News_Portal\migrations\0001_initial.py
+    - Create model Author
+    - Create model Category
+    - Create model Post
+    - Create model PostCategory
+    - Add field postCategory to post
+    - Create model Comment
+
+(venv) D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\project>python manage.py migrate
+Operations to perform:
+  Apply all migrations: News_Portal, admin, auth, contenttypes, flatpages, sessions, sites
+Running migrations:
+  Applying News_Portal.0001_initial... OK
+
+(venv) D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\project>python manage.py shell
+Python 3.9.11 (tags/v3.9.11:2de452f, Mar 16 2022, 14:33:45) [MSC v.1929 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from News_Portal.models import *
+>>> u1= User.objects.create_user(username="Georg")
+Traceback (most recent call last):
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: auth_user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\contrib\auth\models.py", line 161, in create_user
+    return self._create_user(username, email, password, **extra_fields)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\contrib\auth\models.py", line 155, in _create_user
+    user.save(using=self._db)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\contrib\auth\base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\base.py", line 831, in save
+    self.save_base(
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\base.py", line 882, in save_base
+    updated = self._save_table(
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\base.py", line 1025, in _save_table
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: auth_user.username
+>>> u1 = User.objects.create_user(username="petr")
+>>> u1
+<User: petr>
+>>> u2 = User.objects.create_user(username='georg')
+>>> u2
+<User: georg>
+>>> User.objects.all()
+<QuerySet [<User: Georg>, <User: petr>, <User: georg>]>
+>>> Author.objects.create(authorUser=u1)
+<Author: Author object (1)>
+>>> Author.objects.create(authorUser=u2)
+<Author: Author object (2)>
+>>> Author.objects.all()
+<QuerySet [<Author: Author object (1)>, <Author: Author object (2)>]>
+>>> Author.objects.all().values("User")
+Traceback (most recent call last):
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\sql\query.py", line 2142, in add_fields
+    join_info = self.setup_joins(
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\sql\query.py", line 1808, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\sql\query.py", line 1709, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'User' into field. Choices are: authorUser, authorUser_id, id, post, rankingAuthor
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\query.py", line 1297, in values
+    clone = self._values(*fields, **expressions)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\query.py", line 1292, in _values
+    clone.query.set_values(fields)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\sql\query.py", line 2437, in set_values
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'User' into field. Cpackages\django\db\models\sql\query.py", line 2175, in add_fields
+hoices are: authorUser, authorUser_id, id, post, rankingAuthor
+>>> Author.objects.all().values()
+<QuerySet [{'id': 1, 'authorUser_id': 2, 'rankingAuthor': 0.0}, {'id': 2, 'aut
+horUser_id': 3, 'rankingAuthor': 0.0}]>
+>>> Category.objects.create(categoryName="Политика")
+<Category: Category object (1)>
+>>> Category.objects.create(categoryName="В мире")
+<Category: Category object (2)>
+>>> Category.objects.create(categoryName="Экономика")
+<Category: Category object (3)>
+>>> Category.objects.create(categoryName="Происшествия")
+<Category: Category object (4)>
+>>> author = Author.objects.get(id=1)
+>>> author
+<Author: Author object (1)>
+>>> Post.objects.create(author=author, Wahl='Nachricht', titel_name='В Общест
+венной палате открыли ситуационный центр по наблюдению за выборами', text='В
+Общественной палате России прошло открытие ситуационного центра по общественн
+ому контролю за выборами в единый день голосования, передаёт корреспондент РИ
+А Новости.
+  File "<console>", line 1
+    Post.objects.create(author=author, Wahl='Nachricht', titel_name='В Общест
+венной палате открыли ситуационный центр по наблюдению за выборами', text='В
+Общественной палате России прошло открытие ситуационного центра по общественн
+ому контролю за выборами в единый день голосования, передаёт корреспондент РИ
+А Новости.
+
+
+
+
+          ^
+SyntaxError: EOL while scanning string literal
+>>> "Сегодня начал свою работу Ситуационный центр ОП РФ по общественному конт
+ролю за выборами в единый день голосования, которые будут проходить с 9 по 11
+ сентября", - говорится в сообщении, подготовленном к мероприятию.
+  File "<console>", line 1
+    "Сегодня начал свою работу Ситуационный центр ОП РФ по общественному конт
+ролю за выборами в единый день голосования, которые будут проходить с 9 по 11
+ сентября", - говорится в сообщении, подготовленном к мероприятию.
+
+
+                                                                  ^
+SyntaxError: invalid syntax
+>>> В этом году в общественном наблюдении принимает участие свыше 51 тысячи о
+бщественных наблюдателей, с ними на связи в течении всех дней голосования буд
+ет Ситуационный центр ОП РФ с более 60 волонтерами, также говорится в материа
+лах ОП.
+  File "<console>", line 1
+    В этом году в общественном наблюдении принимает участие свыше 51 тысячи о
+бщественных наблюдателей, с ними на связи в течении всех дней голосования буд
+ет Ситуационный центр ОП РФ с более 60 волонтерами, также говорится в материа
+лах ОП.
+      ^
+SyntaxError: invalid syntax
+>>> Post.objects.create(author=author, Wahl='Nachricht', titel_name=' Обществ
+енной палате открыли ситуационный центр по наблюдению за выборами', text='В э
+том году в общественном наблюдении принимает участие свыше 51 тысячи обществе
+нных наблюдателей, с ними на связи в течении всех дней голосования будет Ситу
+ационный центр ОП РФ с более 60 волонтерами, также говорится в материалах ОП'
+)
+<Post: Post object (1)>
+>>> author2 = Author.objects.get(id=3)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\models\query.py", line 650, in get
+    raise self.model.DoesNotExist(
+News_Portal.models.Author.DoesNotExist: Author matching query does not exist.
+>>> author2 = Author.objects.get(id=2)
+>>> Post.objects.create(author=author2, Wahl='Artikel', titel_name='Россия и
+Китай показывают невозможность однополярного мира, заявил Володин', text='МОС
+КВА, 8 сен - РИА Новости. Мир не может быть однополярным, это и демонстрируют
+ Россия и Китай своим сотрудничеством и дружбой, заявил спикер Госдумы Вячесл
+ав Володин по итогам встречи со спикером парламента КНР Ли Чжаньшу.')
+<Post: Post object (2)>
+>>> Post.objects.create(author=author, Wahr='Artikel', titel_name='Володин по
+советовал молодым политикам вместо Охотного Ряда идти к людям', text='МОСКВА,
+ 7 сен - РИА Новости. Председатель ГД Вячеслав Володин, выступая на выездном
+заседании Молодежного парламента при Госдуме в Нижнем Новгороде, сообщил, что
+ для роста молодым политикам надо не на Охотный Ряд, а к людям.')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\models\query.py", line 669, in create
+    obj = self.model(**kwargs)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site
+-packages\django\db\models\base.py", line 585, in __init__
+    raise TypeError(
+TypeError: Post() got unexpected keyword arguments: 'Wahr'
+>>> Post.objects.create(author=author, Wahl="Artikel", titel_name="Володин по
+Post.objects.create(author=author2, Wahl='Artikel', titel_name='Россия и Кита
+й показывают невозможность однополярного мира, заявил Володин', text='МОСКВА,
+ 8 сен - РИА Новости. Мир не может быть однополярным, это и демонстрируют Рос
+сия и Китай своим сотрудничеством и дружбой, заявил спикер Госдумы Вячеслав В
+олодин по итогам встречи со спикером парламента КНР Ли Чжаньшу.')
+<Post: Post object (3)>
+>>> Post.objects.get(id=1).titel_name
+' Общественной палате открыли ситуационный центр по наблюдению за выборами'
+>>> Post.objects.get(id=1).titel_name
+' Общественной палате открыли ситуационный центр по наблюдению за выборами'
+>>>
+>>>
+>>> author = Author.objects.get(id=1)
+>>> Port.objects.create(author=author, Wahl='Artikel', titel_name='В Приморье
+ тайфун отрезал 40 населенных пунктов от дорог', text='В Приморье из-за тайфу
+на "Хиннамнор" 40 населенных пунктов оказались отрезанными от дорожного сообщ
+ения, сообщили РИА Новости в пресс-службе МЧС России.')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Port' is not defined
+>>> Post.objects.get(id=1).postCategory.add(Category.objects.get(id=1)
+...
+...
+...
+...
+... )
+>>> Post.objects.get(id=2).postCategory.add(Category.objects.get(id=3))
+>>> Post.objects.get(id=2).postCategory.add(Category.objects.get(id=3))
+>>> Post.objects.get(id=3).postCategory.add(Category.objects.get(id=3))
+>>> Post.objects.get(id=4).postCategory.add(Category.objects.get(id=4))
+>>> Comment.objects.create(commentPost=Post.onjects.get(id=1),commentUser=Aut
+hor.objects.get(id=1).autorUser, text="хорошо"
+... )
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'Post' has no attribute 'onjects'
+>>> Comment.objects.create(commentPost=Post.onjects.get(id=1),commentUser=Aut
+
+... hor.objects.get(id=1).autorUser, text="хорошо"
+  File "<console>", line 2
+    hor.objects.get(id=1).autorUser, text="хорошо"
+    ^
+SyntaxError: invalid syntax
+>>> Comment.objects.create(commentPost=Post.onjects.get(id=1),commentUser=Aut
+
+... )
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'Post' has no attribute 'onjects'
+>>> Comment.objects.create(commentPost=Post.objects.get(id=1),commentUser=Aut
+hor.objects.get(id=1).authorUser, text='gut')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\query.py", line 669, in create
+    obj = self.model(**kwargs)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\base.py", line 585, in __init__
+    raise TypeError(
+TypeError: Comment() got unexpected keyword arguments: 'text'
+>>> Comment.objects.create(commentPost=Post.objects.get(id=1),commentUser=Aut
+... hor.objects.get(id=1).authorUser, text_comment='gut')
+  File "<console>", line 2
+    hor.objects.get(id=1).authorUser, text_comment='gut')
+    ^
+SyntaxError: invalid syntax
+>>> Comment.objects.create(commentPost=Post.objects.get(id=1),commentUser=Aut
+... hor.objects.get(id=1).authorUser, text_comment='gut')
+  File "<console>", line 2
+    hor.objects.get(id=1).authorUser, text_comment='gut')
+    ^
+SyntaxError: invalid syntax
+>>> Comment.objects.create(commentPost=Post.objects.get(id=1), commentUser=Author.objects.get(id=1).authorUser, text_comment="хорошо")
+<Comment: Comment object (1)>
+>>> Commen.objects.create(commentPost=Post.objects.get(id=2), commenUser=Author,objects.get(id=1).authorUser, text_comment='not bad')
+  File "<console>", line 1
+    Commen.objects.create(commentPost=Post.objects.get(id=2), commenUser=Author,objects.get(id=1).authorUser, text_comment='not bad')
+                                                                                                                                    ^
+SyntaxError: positional argument follows keyword argument
+>>> Comment.objects.create(commentPost=Post.objects.get(id=2), commenUser=Author,objects.get(id=1).authorUser, text_comment='not bad')
+  File "<console>", line 1
+    Comment.objects.create(commentPost=Post.objects.get(id=2), commenUser=Author,objects.get(id=1).authorUser, text_comment='not bad')
+                                                                                                                                     ^
+SyntaxError: positional argument follows keyword argument
+>>> Commen.objects.create(commentPost=Post.objects.get(id=2), commentUser=Author,objects.get(id=1).authorUser, text_comment='not bad')
+  File "<console>", line 1
+    Commen.objects.create(commentPost=Post.objects.get(id=2), commentUser=Author,objects.get(id=1).authorUser, text_comment='not bad')
+                                                                                                                                     ^
+SyntaxError: positional argument follows keyword argument
+>>> Comment.objects.create(commentPost=Post.objects.get(id=2), commentUser=Author.objects.get(id=1).authorUser, text_comment="хорошо")
+<Comment: Comment object (2)>
+>>> Comment.objects.create(commentPost=Post.objects.get(id=3), commentUser=Author.objects.get(id=2).authorUser, text_comment="not bad")
+<Comment: Comment object (3)>
+>>> Comment.objects.create(commentPost=Post.objects.get(id=5), commentUser=Author.objects.get(id=1).authorUser, text_comment="хорошо")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\query.py", line 650, in get
+    raise self.model.DoesNotExist(
+News_Portal.models.Post.DoesNotExist: Post matching query does not exist.
+>>> Comment.objects.create(commentPost=Post.objects.get(id=4), commentUser=Author.objects.get(id=2).authorUser, text_comment="хорошо")
+<Comment: Comment object (4)>
+>>> Comment.objects.create(commentPost=Post.objects.get(id=1), commentUser=Author.objects.get(id=3).authorUser, text_comment="nice")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\USER\Documents\PycharmProjects\D2.9. Итоговый проект\venv\lib\site-packages\django\db\models\query.py", line 650, in get
+    raise self.model.DoesNotExist(
+News_Portal.models.Author.DoesNotExist: Author matching query does not exist.
+>>> Comment.objects.create(commentPost=Post.objects.get(id=1), commentUser=Author.objects.get(id=1).authorUser, text_comment="nice")
+<Comment: Comment object (5)>
+>>> Comment.objects.get(id=1).like
+<bound method Comment.like of <Comment: Comment object (1)>>
+>>> Comment.objects.get(id=1).like()
+>>> Comment.onjects.get(id=1).comment_ranking
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'Comment' has no attribute 'onjects'
+>>> Comment.objects.get(id=1).comment_ranking
+0.1
+>>> Comment.objects.get(id=1).like()
+>>> Comment.objects.get(id=1).comment_ranking
+0.2
+>>> Comment.objects.get(id=2).dislike()
+>>> Comment.objects.get(id=2).comment_ranking
+-0.1
+>>> Post.objects.get(id=4).like()
+>>> Post.objects.get(id=4).ranking
+0.1
+>>> Post.objects.get(id=1).like()
+>>> a = Author.objects.get(id=1)
+>>> a.update_rating()
+>>> a.rankingAuthor
+0.7000000000000001
+>>> b = Author.objects.get(id=2)
+>>> b.update_rating
+<bound method Author.update_rating of <Author: Author object (2)>>
+>>> b.update_rating()
+>>> b.rankongAuthor
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Author' object has no attribute 'rankongAuthor'
+>>> b.rankingAuthor
+0.0
+>>> Author.objects.rankimgAuthor
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Manager' object has no attribute 'rankimgAuthor'
+>>> Author.objects.rankingAuthor
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Manager' object has no attribute 'rankingAuthor'
+>>> Autho.rankingAuthor.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Autho' is not defined
+>>> Author.rankingAuthor.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'DeferredAttribute' object has no attribute 'all'
+>>> a = Aythor.objects.order_by('-rankingAuthor')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Aythor' is not defined
+>>> a = Author.objects.order_by('-rankingAuthor')
+>>> a
+<QuerySet [<Author: Author object (1)>, <Author: Author object (2)>]>
+>>> Comment.objects.get(id=3).like()
+>>> Comment.objects.get(id=4).like()
+>>> Post.objects.get(id=2).like()
+>>> a
+<QuerySet [<Author: Author object (1)>, <Author: Author object (2)>]>
+>>> Post.objects.get(id=3).like()
+>>> a
+<QuerySet [<Author: Author object (1)>, <Author: Author object (2)>]>
+>>> Post.objects.get(id=3).like()
+>>> a
+<QuerySet [<Author: Author object (1)>, <Author: Author object (2)>]>
+>>> Comment.objects.get(id=3).like()
+>>> a
+<QuerySet [<Author: Author object (1)>, <Author: Author object (2)>]>
+>>> Comment.objects.get(id=5).like()
+>>> a
+<QuerySet [<Author: Author object (1)>, <Author: Author object (2)>]>
+>>> Comment.objects.get(id=2).like()
+>>> Comment.objects.get(id=2).like()
+>>> a
+<QuerySet [<Author: Author object (1)>, <Author: Author object (2)>]>
+>>> a = Author.objects.order_by('-rankingAuthor')
+>>> a
+<QuerySet [<Author: Author object (1)>, <Author: Author object (2)>]>
+>>> a = Author.objects.order_by('-rankingAuthor')[:1]
+>>> a
+<QuerySet [<Author: Author object (1)>]>
+>>> a.rankingAuthor
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'rankingAuthor'
+>>> a.rankingAuthor
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'rankingAuthor'
+>>> for i in a:
+... i.rankingAuthor
+  File "<console>", line 2
+    i.rankingAuthor
+    ^
+IndentationError: expected an indented block
+>>> for i in a:
+...     i.rankingAuthor
+...     i.authorUser.username
+...
+0.7000000000000001
+'petr'
+>>>
+>>>
+>>> a = Author.objects.order_by('-rankingAuthor')
+>>> for i in a:
+...     i.rankingAuthor
+...     i.authorUser.username
+...
+0.7000000000000001
+'petr'
+0.0
+'georg'
+>>>
